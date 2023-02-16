@@ -2,6 +2,8 @@ import 'package:f_widgets/screens/login/login.screen.dart';
 import 'package:f_widgets/widgets/app_button.widget.dart';
 import 'package:flutter/material.dart';
 
+import '../../widgets/link.widget.dart';
+
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
 
@@ -41,12 +43,10 @@ class WelcomeScreen extends StatelessWidget {
                       },
                       label: 'Register'),
                   const SizedBox(height: 46),
-                  GestureDetector(
-                    child: Text(
-                      'Continue as a guest',
-                      style: TextStyle(color: Color(0xFF35C2C1), decoration: TextDecoration.underline, fontWeight: FontWeight.w600),
-                    ),
-                  )
+                  Link(
+                    onTap: () {},
+                    text: 'Continue as a guest',
+                  ),
                 ],
               ),
             )));

@@ -1,7 +1,10 @@
+import 'package:f_widgets/widgets/link.widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../widgets/app_button.widget.dart';
+import '../../widgets/app_text_field.widget.dart';
+import '../otp/otp.screen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -40,36 +43,17 @@ class LoginScreen extends StatelessWidget {
           const SizedBox(
             height: 32,
           ),
-          Container(
-            decoration: BoxDecoration(
-                color: const Color(0xFFF7F8F9),
-                borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: const Color(0xFFE8ECF4), width: 1)),
-            child: TextField(
-              style: TextStyle(fontSize: 16),
-              decoration: InputDecoration(
-                  contentPadding: EdgeInsets.all(18),
-                  border: InputBorder.none,
-                  hintText: 'Enter Your Email',
-                  hintStyle: TextStyle(color: const Color(0xFF8391A1))),
-            ),
+          AppTextField(
+            placeholder: 'Enter Your Email',
+            type: TextInputType.emailAddress,
           ),
           const SizedBox(
             height: 14,
           ),
-          Container(
-            decoration: BoxDecoration(
-                color: const Color(0xFFF7F8F9),
-                borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: const Color(0xFFE8ECF4), width: 1)),
-            child: TextField(
-              style: TextStyle(fontSize: 16),
-              decoration: InputDecoration(
-                  contentPadding: EdgeInsets.all(18),
-                  border: InputBorder.none,
-                  hintText: 'Enter Your Password',
-                  hintStyle: TextStyle(color: const Color(0xFF8391A1))),
-            ),
+          AppTextField(
+            placeholder: 'Enter Your Password',
+            type: TextInputType.text,
+            obscureText: true,
           ),
           const SizedBox(
             height: 15,
@@ -91,7 +75,7 @@ class LoginScreen extends StatelessWidget {
               variant: 'solid',
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => LoginScreen()));
+                    MaterialPageRoute(builder: (context) => OtpScreen()));
               },
               label: 'Login'),
           const SizedBox(
@@ -124,7 +108,8 @@ class LoginScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Ink(
-                padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 40),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 15, horizontal: 40),
                 decoration: BoxDecoration(
                     color: Colors.transparent,
                     borderRadius: BorderRadius.circular(12),
@@ -139,7 +124,8 @@ class LoginScreen extends StatelessWidget {
                     )),
               ),
               Ink(
-                padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 40),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 15, horizontal: 40),
                 decoration: BoxDecoration(
                     color: Colors.transparent,
                     borderRadius: BorderRadius.circular(12),
@@ -154,7 +140,8 @@ class LoginScreen extends StatelessWidget {
                     )),
               ),
               Ink(
-                padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 40),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 15, horizontal: 40),
                 decoration: BoxDecoration(
                     color: Colors.transparent,
                     borderRadius: BorderRadius.circular(12),
@@ -178,12 +165,9 @@ class LoginScreen extends StatelessWidget {
               const SizedBox(
                 width: 2,
               ),
-              Text(
-                'Register Now',
-                style: TextStyle(
-                    color: Color(0xFF35C2C1),
-                    decoration: TextDecoration.underline,
-                    fontWeight: FontWeight.w600),
+              Link(
+                onTap: () {},
+                text: 'Register Now',
               )
             ],
           )
